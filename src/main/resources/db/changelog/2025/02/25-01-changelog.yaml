@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1740476880899-2
+      author: NAT
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: key
+            indexName: key_index
+            tableName: url
+            unique: false
+

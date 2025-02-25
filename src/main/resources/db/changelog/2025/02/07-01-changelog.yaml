@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1738895217228-1
+      author: NAT
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_url
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: full_url
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: key
+                  type: VARCHAR(255)
+              - column:
+                  name: expired_at
+                  type: DATETIME
+              - column:
+                  name: created_at
+                  type: DATETIME
+              - column:
+                  name: modified_at
+                  type: DATETIME
+            tableName: url
+  - changeSet:
+      id: 1738895217228-2
+      author: NAT
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: key
+            constraintName: uc_url_key
+            tableName: url
+
