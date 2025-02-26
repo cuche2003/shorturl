@@ -195,7 +195,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-shield]: https://img.shields.io/github/issues/cuche2003/shorturl.svg?style=for-the-badge
 [issues-url]: https://github.com/cuche2003/shorturl/issues
 [license-shield]: https://img.shields.io/github/license/cuche2003/shorturl.svg?style=for-the-badge
-[license-url]: https://github.com/cuche2003/shorturl/blob/master/LICENSE.txt
+[license-url]: https://github.com/cuche2003/shorturl/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png
 [Spring-logo]: https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white
 [Spring-url]: https://spring.io
