@@ -147,7 +147,7 @@ Don't forget to give the project a star! Thanks again!
 ### Top contributors:
 
 <a href="https://github.com/cuche2003/shorturl/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=cuche2003/shorturl" alt="contrib.rocks image" />
+  <img src="https://contrib.rocks/image?repo=cuche2003/shorturl" />
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
