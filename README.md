@@ -57,8 +57,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 There are many great URL shorteners available online. However, I didn't find one that allowed users to customize their own shortcut, so I created this enhanced one. Although this was made solely for educational purpose, you may use it to make your own (better) URL shortener if you may.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -196,7 +194,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-url]: https://github.com/cuche2003/shorturl/issues
 [license-shield]: https://img.shields.io/github/license/cuche2003/shorturl.svg?style=for-the-badge
 [license-url]: https://github.com/cuche2003/shorturl/blob/master/LICENSE
-[product-screenshot]: images/screenshot.png
 [Spring-logo]: https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white
 [Spring-url]: https://spring.io
 [SpringBoot-logo]: https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white
