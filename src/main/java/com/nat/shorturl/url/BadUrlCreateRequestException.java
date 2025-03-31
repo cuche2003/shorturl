@@ -7,8 +7,8 @@ import org.springframework.web.ErrorResponseException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BadUrlCreateRequest extends ErrorResponseException {
-    public BadUrlCreateRequest(BindingResult result) {
+public class BadUrlCreateRequestException extends ErrorResponseException {
+    public BadUrlCreateRequestException(BindingResult result) {
         super(HttpStatus.BAD_REQUEST);
 
         this.setTitle("Bad URL Create Request");

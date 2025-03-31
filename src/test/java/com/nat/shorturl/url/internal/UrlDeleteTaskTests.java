@@ -19,9 +19,7 @@ public class UrlDeleteTaskTests {
     UrlDeleteTasks tasks;
 
     @Test
-    public void shouldDeleteExpiredUrlsHourly() {
-        await().atMost(Duration.ofHours(2)).untilAsserted(() -> {
-            verify(tasks, atLeast(2)).deleteExpiredUrlsHourly();
-        });
+    public void shouldDeleteExpiredUrlsEvery5Minutes() {
+        await().atMost(Duration.ofMinutes(10)).untilAsserted(() -> verify(tasks, atLeast(2)).deleteExpiredUrlsEvery5Minutes());
     }
 }

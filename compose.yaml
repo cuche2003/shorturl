@@ -2,9 +2,9 @@ services:
   postgres:
     image: 'postgres:latest'
     environment:
-      - 'POSTGRES_DB=shorturl'
-      - 'POSTGRES_USER=admin'
-      - 'POSTGRES_PASSWORD=admin'
+      POSTGRES_DB: 'shorturl'
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
     ports:
       - '5432:5432'
   redis:
@@ -14,5 +14,29 @@ services:
       - '6379:6379'
     volumes:
       - redis:/data
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    command:
+      - start-dev
+    ports:
+      - '8081:8081'
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-password}
+
+      KC_DB: postgres
+      KC_DB_URL: 'jdbc:postgresql://postgres:5432/shorturl'
+      KC_DB_USERNAME: ${POSTGRES_USER:-admin}
+      KC_DB_PASSWORD: ${POSTGRES_PASSWORD:-password}
+
+      KC_HTTP_PORT: 8081
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_STRICT: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+
+      KC_HEALTH_ENABLED: true
+      KC_METRICS_ENABLED: true
+    depends_on:
+      - postgres
 volumes:
   redis:

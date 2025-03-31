@@ -1,6 +1,6 @@
 package com.nat.shorturl.url.internal;
 
-import com.nat.shorturl.url.BadUrlCreateRequest;
+import com.nat.shorturl.url.BadUrlCreateRequestException;
 import com.nat.shorturl.url.UrlNotFoundException;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,12 +16,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @RestControllerAdvice
 class UrlExceptionHandler extends ResponseEntityExceptionHandler {
-    protected ResponseEntity<ProblemDetail> createResponseEntity(ErrorResponseException ex) {
-        HttpHeaders headers = new HttpHeaders(ex.getHeaders());
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity<>(ex.getBody(), headers, ex.getStatusCode());
-    }
-
     @ExceptionHandler(value = UrlNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ApiResponse(
@@ -36,7 +30,7 @@ class UrlExceptionHandler extends ResponseEntityExceptionHandler {
         return createResponseEntity(ex);
     }
 
-    @ExceptionHandler(BadUrlCreateRequest.class)
+    @ExceptionHandler(BadUrlCreateRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ApiResponse(
         responseCode = "400",
@@ -47,7 +41,7 @@ class UrlExceptionHandler extends ResponseEntityExceptionHandler {
         )
     )
     ResponseEntity<ProblemDetail> handleUrlCreateRequestNotValid(
-        BadUrlCreateRequest ex
+        BadUrlCreateRequestException ex
     ) {
         return createResponseEntity(ex);
     }
@@ -92,5 +86,11 @@ class UrlExceptionHandler extends ResponseEntityExceptionHandler {
             new HttpHeaders(),
             HttpStatus.UNAUTHORIZED
         );
+    }
+
+    protected ResponseEntity<ProblemDetail> createResponseEntity(ErrorResponseException ex) {
+        HttpHeaders headers = new HttpHeaders(ex.getHeaders());
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(ex.getBody(), headers, ex.getStatusCode());
     }
 }

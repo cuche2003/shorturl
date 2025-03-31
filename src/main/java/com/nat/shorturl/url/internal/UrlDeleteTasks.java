@@ -1,5 +1,6 @@
 package com.nat.shorturl.url.internal;
 
+import com.nat.shorturl.url.UrlService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,8 +18,8 @@ class UrlDeleteTasks {
         this.urlService = urlService;
     }
 
-    @Scheduled(fixedRate = 1, timeUnit = TimeUnit.HOURS)
-    public void deleteExpiredUrlsHourly() {
+    @Scheduled(fixedRate = 5, timeUnit = TimeUnit.MINUTES)
+    public void deleteExpiredUrlsEvery5Minutes() {
         urlService.deleteAllExpiredUrls();
         log.info("Deleted expired urls.");
     }

@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1742278202243-1
+      author: NAT
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: full_url
+            newDataType: VARCHAR(512)
+            tableName: url
+  - changeSet:
+      id: 1742278202243-2
+      author: NAT
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: key
+            newDataType: VARCHAR(64)
+            tableName: url
+
